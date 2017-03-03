@@ -1,0 +1,19 @@
+.ui.vertical.footer.segment
+    .ui.container
+        .ui.stackable.two.column.grid.internally.celled
+
+            .column
+                %p Vincent Nguyen
+                = link_to "Twitter", "https://twitter.com/vinhnglx"
+                |
+                = link_to "GitHub", "https://github.com/vinhnglx/"
+
+            .column
+                %p By Year
+                .ui.list
+                    - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                        = link_to "#{year} (#{articles.count})", blog_year_path(year), :class => 'item'
+
+- if @video
+    :javascript
+        $('.ui.embed').embed()

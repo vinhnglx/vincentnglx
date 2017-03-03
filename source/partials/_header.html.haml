@@ -1,0 +1,27 @@
+!!!
+%html
+    %head
+        %meta{charset: "utf-8"}/
+        %meta{content: "IE=edge;chrome=1", "http-equiv" => "X-UA-Compatible"}/
+        %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+        %meta{content: "Personal blog of a simple developer with life's energy is coffee", name: "description"}/
+        %meta{content: "vincent nguyen, vinnglx", name: "keywords"}/
+        %meta{content: "Vincent Nguyen", property: "og:title"}/
+        %meta{content: "website", :property => "og:type"}/
+        %meta{content: "https://vincentnglx.com/", property: "og:url"}/
+        /%meta{content: "https://yoururl.com/images/fbshare@2x.png", property: "og:image"}/
+
+        %title
+            Middleman Pinterest Blog Template#{'- ' + current_article.title unless current_article.nil?}
+
+        = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+        = javascript_include_tag 'vendor/jquery.min.js', 'vendor/semantic-ui.js', 'app.js'
+        = stylesheet_link_tag 'all'
+
+    %body
+        -# Navigation
+        .ui.secondary.pointing.menu.large
+            .ui.container
+                .header.item
+                    %a.item{:href => '/'}
+                        Vincent Nguyen
