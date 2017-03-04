@@ -12,6 +12,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem "middleman", "~> 4.1"
 gem "middleman-blog"
 gem 'middleman-livereload'
+gem "middleman-deploy"
 
 # Sprockets
 gem "middleman-sprockets"
@@ -24,3 +25,5 @@ gem "builder", "~> 3.0"
 
 # For post summaries
 gem "nokogiri"
+
+
