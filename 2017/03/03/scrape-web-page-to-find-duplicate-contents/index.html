@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='http://vincentnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- How to scrape a web page to find duplicate contents
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    How to scrape a web page to find duplicate contents
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i> 3 March 2017
+      </span>
+    </div>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>I recently tried to submit my job application to a few companies, unfortunately, I still can't get hired but I passed some rounds
+  for technical test. This post is a technical test from a company in Singapore, they want to me write a tool to
+  find duplicated contents from their website.</p>
+  
+  <p>From the requirement, you will know we need to write a scraping tool and an algorithm to find duplicated contents.
+  So this post will have two sections: <em>how to scrape a site</em> and <em>how to find duplicated contents</em>?</p>
+  
+  <h2 id="how-to-scrape-a-site">How to scrape a site</h2>
+  
+  <p>We will open any website, for example, <a href="https://www.viki.com">Viki</a>. At the first glance, you will find the problem.</p>
+  
+  <p><img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1S0otclJ0OHFOckk" alt="Viki - Homepage" /></p>
+  
+  <p>We can say: Contents are considered duplicate if they had the same URL, title, and image_src.</p>
+  
+  <p>What's next step? Will we write a code to parse HTML contents?</p>
+  
+  <p>No, we need to check again because you know, a famous site like Viki, I don't believe they only use one way to render contents.</p>
+  
+  <p>So, what should I do? Okay - We will the javascript on this website to find which contents will be rendered by Javascript. Wait!!! Perharps some people will ask me why I do that? Why I disable javascript?</p>
+  
+  <p>My answer is very simple, trust me, because this will directly affect the way you will scrape the site!</p>
+  
+  <p>So, this is a screenshot after I turned off Javascript</p>
+  
+  <p><img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1Y3pjanhsSFJXbk0" alt="Viki - After disabled JS - Homepage" /></p>
+  
+  <p>There is a difference between these images - You can't find the <strong>"TOP PICKS FOR YOU"</strong> section in the screenshot that I disabled Javascript.
+  This mean maybe this section is rendered from AJAX call by using Javascript.</p>
+  
+  <p>Next step, we will use Chrome Developer Tool to find the common HTML structure of these duplicated contents.</p>
+  
+  <p><img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1Szl5a0V5UG96aHM" alt="Viki - Inspect common html structure" /></p>
+  
+  <p>These elements has common class <code>"thumbnail js-express-player"</code> and structure inside <code>&lt;div class="thumbnail-wrapper"&gt;&lt;/div&gt;</code>, <code>&lt;div class="thumbnail-description"&gt;&lt;/div&gt;</code>.
+  We will parse to get html contents based on these classes.</p>
+  
+  <p>Here is the final decision: AFTER the page finished loading contents, we will crawl the site, parse the HTML contents.</p>
+  
+  <p>My favorite language is Ruby - and in Ruby, I can use <a href="https://ruby-doc.org/stdlib-2.1.0/libdoc/open-uri/rdoc/OpenURI.html">open-uri</a>
+  or few gems such as <a href="http://www.nokogiri.org/">nokogiri</a>, <a href="https://github.com/sparklemotion/mechanize">mechanize</a> to crawl and parse HTML contents.</p>
+  
+  <p>But we want to parse the content that AJAX loads its, hence these gems can't handle it.
+  In this case, we can use <a href="https://github.com/SeleniumHQ/selenium/wiki/Ruby-Bindings">Selenium-Webdriver</a> with a headless webkit - <a href="https://github.com/ariya/phantomjs">PhantomJS</a> to crawl the page and <a href="https://github.com/ariya/phantomjs">Nokogiri</a> to parse.</p>
+  
+  <p>Basically the code will be:</p>
+  
+  <pre><code>  @driver = Selenium::WebDriver.for(:phantomjs)
+  @driver.navigate.to('https://www.viki.com')
+  </code></pre>
+  
+  <p>After that, we will use Nokogiri to parse HTML contents</p>
+  
+  <pre><code>  page_source = Nokogiri::HTML(@driver.page_source)
+  body = page_source.css('.thumbnail.js-express-player')
+  </code></pre>
+  
+  <p>As I said before, we will parse title, url and image_src and these will be located on an object: <code>{title: "...", image_src: "...", url: "xxx"}</code>.
+  Hence the code will be:</p>
+  
+  <pre><code>  body.map {|element|
+    {
+      "title" =&gt; element.css('.thumb-title').text.strip,
+      "image_src" =&gt; element.css('.thumbnail-img img').attribute('src').text,
+      "url" =&gt; element.css('.thumbnail-img').attribute('href').text
+    }.to_s
+  }
+  </code></pre>
+  
+  <p>When we get a list of objects then we are ready to go to step two: Find the duplicated contents from this list.</p>
+  
+  <h2 id="how-to-find-duplicated-contents">How to find duplicated contents</h2>
+  
+  <p>We had the array of objects so how to find identical objects in array? We implement a loop and compare one by one to find the identical object?
+  Huh, that's solution will work but the Big O notation is <strong>O(n^2)</strong> - the code will run very slow.</p>
+  
+  <p>So what's the better solution? Did you remember the <a href="https://en.wikipedia.org/wiki/MD5">MD5 algorithm</a>? The MD5 algorithm is a widely used hash function producing a 128-bit hash value.
+  It can be used as a checksum to verify data integrity.</p>
+  
+  <p>In this case, I need a cryptographic hash that takes content and returns a fixed bit string. Objects have the same content will be grouped with identical hash.</p>
+  
+  <p>Ruby have a library called <a href="https://ruby-doc.org/stdlib-2.1.0/libdoc/digest/rdoc/Digest.html">Digest/MD5</a> can help me encrypt.</p>
+  
+  <p>Below is my code sample, the final result is hash contains identical objects, and of course the Big O notation is <strong>O(n)</strong>:</p>
+  
+  <pre><code>  hash = {}
+  raw.each do |el|
+    key = Digest::MD5.hexdigest(el).to_sym
+    hash.has_key?(key) ? hash[key].push(el) : hash[key] = [el]
+  end
+  
+  hash.delete_if { |key, value| value.size == 1 }
+  </code></pre>
+  
+  <h2 id="conclusion">Conclusion</h2>
+  
+  <p>From this technical test, I develop a tool can extend to find duplicated contents from many websites. Source code available at <a href="https://github.com/vinhnglx/dupco">vinhnglx/dupco</a></p>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (1)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
