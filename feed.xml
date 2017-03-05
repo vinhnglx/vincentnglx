@@ -5,16 +5,121 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-03T23:40:00+08:00</updated>
+  <updated>2017-03-05T18:00:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>Few Ruby Katas in a rainy day</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/05/few-ruby-kata-in-sunday/"/>
+    <id>http://vincent.com/2017/03/05/few-ruby-kata-in-sunday/</id>
+    <published>2017-03-05T18:00:00+08:00</published>
+    <updated>2017-03-05T18:50:23+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;In a rainy Sunday, I have solved three katas.&lt;/p&gt;
+
+&lt;h3 id="kata-1"&gt;Kata #1&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Return the first longest string consisting of k consecutive strings taken in the array&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  longest_consec(["zone", "abigail", "theta", "form", "libe",
+"zas", "theta", "abigail"], 2) ...&lt;/code&gt;&lt;/pre&gt;</summary>
+    <content type="html">&lt;p&gt;In a rainy Sunday, I have solved three katas.&lt;/p&gt;
+
+&lt;h3 id="kata-1"&gt;Kata #1&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Return the first longest string consisting of k consecutive strings taken in the array&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  longest_consec(["zone", "abigail", "theta", "form", "libe",
+"zas", "theta", "abigail"], 2) # "abigailtheta"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I solved this kata with a helping from &lt;a href="https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-each_cons"&gt;each_cons&lt;/a&gt; method.
+A method belongs to Enumerable in Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def longest_consec(strarr, k)
+  strarr_length = strarr.length
+  return "" if strarr_length == 0 || k &amp;gt; strarr_length || k &amp;lt;= 0
+  return strarr.each_cons(k).map {|el| el.join("") }.max_by(&amp;amp;:length)
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="kata-2"&gt;Kata #2&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed
+Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  spin_words("Hey fellow warriors") # "Hey wollef sroirraw"
+spin_words("Hello world. My name is Vincent") # olleH .dlrow My name is tnecniV
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This kata is quite easy to solve. Basically, I just split the string into an array of words and reverse words that have more than 5 letters.
+Then I will convert that array of words to string.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def spin_words(string)
+  string.split(" ").map {|el|
+    if el.length &amp;gt;= 5 then el.reverse else el end}.join(" ")
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="kata-3"&gt;Kata #3&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;A string is considered to be in title case if each word in the string is
+either (a) capitalised (that is, only the first letter of the word is in
+upper case) or (b) considered to be an exception and put entirely into
+lower case unless it is the first word, which is always capitalised.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Write a function that will convert a string into title case, given an
+optional list of exceptions (minor words). The list of minor words will
+be given as a string with each word separated by a space. Your function
+should ignore the case of the minor words string – it should behave in
+the same way even if the case of the minor word string is changed.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  title_case('a clash of KINGS', 'a an the of') # A Class of Kings
+title_case('THE WIND IN THE WILLOWS', 'The In') # The Wind in the Willows
+title_case('the quick brown fox') # The Quick Brown Fox
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the minor_words option is null then we will capitalize each word in this input string.
+If there is minor_word option then we only capitalize words that don't inside the minor_word list.
+In addition, we always capitalize the first word of string.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  def title_case(title, minor_words = '')
+  if minor_words.empty?
+    title.split(" ").map(&amp;amp;:capitalize).join(" ")
+  else
+    minor_arr = minor_words.split(" ").map(&amp;amp;:downcase)
+    first_el, *rest_el = title.split(" ").map(&amp;amp;:downcase)
+    rest_el.map {|el| unless minor_arr.include?(el) then el.capitalize else el end}.unshift(first_el.capitalize).join(" ")
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>How to scrape a web page to find duplicate contents</title>
     <link rel="alternate" href="http://vincent.com/2017/03/03/scrape-web-page-to-find-duplicate-contents/"/>
     <id>http://vincent.com/2017/03/03/scrape-web-page-to-find-duplicate-contents/</id>
     <published>2017-03-03T23:40:00+08:00</published>
-    <updated>2017-03-04T17:47:23+08:00</updated>
+    <updated>2017-03-04T18:05:52+08:00</updated>
     <author>
       <name>Vincent</name>
     </author>

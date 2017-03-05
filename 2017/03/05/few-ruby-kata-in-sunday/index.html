@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Few Ruby Katas in a rainy day
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Few Ruby Katas in a rainy day
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i> 5 March 2017
+      </span>
+    </div>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>In a rainy Sunday, I have solved three katas.</p>
+  
+  <h3 id="kata-1">Kata #1</h3>
+  
+  <p><em>Return the first longest string consisting of k consecutive strings taken in the array</em></p>
+  
+  <p><em>Example:</em></p>
+  
+  <pre><code>  longest_consec(["zone", "abigail", "theta", "form", "libe",
+  "zas", "theta", "abigail"], 2) # "abigailtheta"
+  </code></pre>
+  
+  <p>I solved this kata with a helping from <a href="https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-each_cons">each_cons</a> method.
+  A method belongs to Enumerable in Ruby.</p>
+  
+  <p><em>The code will be:</em></p>
+  
+  <pre><code>  def longest_consec(strarr, k)
+    strarr_length = strarr.length
+    return "" if strarr_length == 0 || k &gt; strarr_length || k &lt;= 0
+    return strarr.each_cons(k).map {|el| el.join("") }.max_by(&amp;:length)
+  end
+  </code></pre>
+  
+  <h3 id="kata-2">Kata #2</h3>
+  
+  <p><em>Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed
+  Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.</em></p>
+  
+  <p><em>Example:</em></p>
+  
+  <pre><code>  spin_words("Hey fellow warriors") # "Hey wollef sroirraw"
+  spin_words("Hello world. My name is Vincent") # olleH .dlrow My name is tnecniV
+  </code></pre>
+  
+  <p>This kata is quite easy to solve. Basically, I just split the string into an array of words and reverse words that have more than 5 letters.
+  Then I will convert that array of words to string.</p>
+  
+  <p><em>The code will be:</em></p>
+  
+  <pre><code>  def spin_words(string)
+    string.split(" ").map {|el|
+      if el.length &gt;= 5 then el.reverse else el end}.join(" ")
+  end
+  </code></pre>
+  
+  <h3 id="kata-3">Kata #3</h3>
+  
+  <p><em>A string is considered to be in title case if each word in the string is
+  either (a) capitalised (that is, only the first letter of the word is in
+  upper case) or (b) considered to be an exception and put entirely into
+  lower case unless it is the first word, which is always capitalised.</em></p>
+  
+  <p><em>Write a function that will convert a string into title case, given an
+  optional list of exceptions (minor words). The list of minor words will
+  be given as a string with each word separated by a space. Your function
+  should ignore the case of the minor words string – it should behave in
+  the same way even if the case of the minor word string is changed.</em></p>
+  
+  <p><em>Example:</em></p>
+  
+  <pre><code>  title_case('a clash of KINGS', 'a an the of') # A Class of Kings
+  title_case('THE WIND IN THE WILLOWS', 'The In') # The Wind in the Willows
+  title_case('the quick brown fox') # The Quick Brown Fox
+  </code></pre>
+  
+  <p>If the minor_words option is null then we will capitalize each word in this input string.
+  If there is minor_word option then we only capitalize words that don't inside the minor_word list.
+  In addition, we always capitalize the first word of string.</p>
+  
+  <p><em>The code will be:</em></p>
+  
+  <pre><code>  def title_case(title, minor_words = '')
+    if minor_words.empty?
+      title.split(" ").map(&amp;:capitalize).join(" ")
+    else
+      minor_arr = minor_words.split(" ").map(&amp;:downcase)
+      first_el, *rest_el = title.split(" ").map(&amp;:downcase)
+      rest_el.map {|el| unless minor_arr.include?(el) then el.capitalize else el end}.unshift(first_el.capitalize).join(" ")
+    end
+  end
+  </code></pre>
+  
+  <p>Thanks for reading!</p>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (2)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
