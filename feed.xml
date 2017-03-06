@@ -5,10 +5,92 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-05T18:00:00+08:00</updated>
+  <updated>2017-03-06T22:52:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>How to test monkey-patch methods?</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/06/how-to-test-monkey-patch-methods/"/>
+    <id>http://vincent.com/2017/03/06/how-to-test-monkey-patch-methods/</id>
+    <published>2017-03-06T22:52:00+08:00</published>
+    <updated>2017-03-06T23:12:54+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;I won't explain what's Monkey-patch, many developers knew about it.&lt;/p&gt;
+
+&lt;p&gt;In Ruby, we can create and test monkey-patch methods like the code below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    module StringExtensions
+    # Number of words in a string
+    def word_count
+      self.split.size
+...&lt;/code&gt;&lt;/pre&gt;</summary>
+    <content type="html">&lt;p&gt;I won't explain what's Monkey-patch, many developers knew about it.&lt;/p&gt;
+
+&lt;p&gt;In Ruby, we can create and test monkey-patch methods like the code below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    module StringExtensions
+    # Number of words in a string
+    def word_count
+      self.split.size
+    end
+  end
+
+  describe String do
+    before do
+      String.include StringExtensions
+    end
+
+    describe "#word_count" do
+      it "returns number of words in a string" do
+        expect("Hell yeah".word_count).to eq 2
+        expect("Hello world! I'm Vincent".word_count).to eq 4
+      end
+
+      it "returns zero if a string is empty" do
+        expect("".word_count).to eq 4
+      end
+    end
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Personally, I don't like monkey-patch, we can create a Word class for methods relate to words in a string.
+But you know, sometimes we have to monkey-path so this is one way we can apply.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>What's Agile?</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/06/whats-agile/"/>
+    <id>http://vincent.com/2017/03/06/whats-agile/</id>
+    <published>2017-03-06T22:24:00+08:00</published>
+    <updated>2017-03-06T23:15:10+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;What's Agile? Recent years, many people say about Agile, Agile certificates, SCRUM master, Kanban. And almost people
+thinks Agile is something big - they open Agile days/conference and they say we will use Agile to manage software projects.&lt;/p&gt;
+
+&lt;p&gt;Huh, honestly...&lt;/p&gt;</summary>
+    <content type="html">&lt;p&gt;What's Agile? Recent years, many people say about Agile, Agile certificates, SCRUM master, Kanban. And almost people
+thinks Agile is something big - they open Agile days/conference and they say we will use Agile to manage software projects.&lt;/p&gt;
+
+&lt;p&gt;Huh, honestly, I really hate those who say about that - Scrum, Kanban or certificates are ways to develop software better.
+In my opinion, Agile are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Individuals and interactions overs processes and tools.&lt;/li&gt;
+  &lt;li&gt;Working software over comprehensive documentation.&lt;/li&gt;
+  &lt;li&gt;Customer collaboration over contract negotiation.&lt;/li&gt;
+  &lt;li&gt;Responding to change over following a plan.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That's all. I only need to keep remember 4 manifesto.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Few Ruby Katas in a rainy day</title>
     <link rel="alternate" href="http://vincent.com/2017/03/05/few-ruby-kata-in-sunday/"/>
