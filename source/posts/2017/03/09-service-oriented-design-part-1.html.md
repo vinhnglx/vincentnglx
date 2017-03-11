@@ -1,7 +1,8 @@
 ---
 title: Few notes about service oriented design
 date: 2017-03-09 11:49 UTC
-tags: architecture, design, rails, service oriented design - Part 1
+tags: architecture, design, rails, service oriented design
+hidden: true
 author: Vincent
 ---
 

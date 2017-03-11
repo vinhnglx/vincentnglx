@@ -1,5 +1,5 @@
 .ui.three.column.doubling.stackable.masonry.grid
-    - articles.each_with_index do |article, i|
+    - articles.delete_if {|x| x.data.hidden }.each_with_index do |article, i|
         - author = find_author(article.data.author)
         .column
             .ui.fluid.card
