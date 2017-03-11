@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Cleancoder chapter 1
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Cleancoder chapter 1
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i>11 March 2017
+      </span>
+    </div>
+  </div>
+  <div class='content'>
+    <span class='right floated'>
+      <a href="/tags/cleancoder/">cleancoder</a>&#44;
+      <a href="/tags/attitude/">attitude</a>&#44;
+      <a href="/tags/weekend-posts/">weekend posts</a>
+    </span>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p><strong>Personal note after reading The Cleancoder chapter 1. Thanks <a href="https://sites.google.com/site/unclebobconsultingllc/">Uncle Bob</a> for this awesome book.</strong></p>
+  
+  <p>If you are a developer, you have to read it. The perfect time to read is when you have two or three years experience in software/web/backend development.</p>
+  
+  <h2 id="professionalism">Professionalism</h2>
+  
+  <p>All of us want to be a professional software developer. What's professionalism?</p>
+  
+  <p>You know, it's a lot easier to be a nonprofessional, and me I used to be a nonprofessional software developer. I don't tell now I'm a professional software developer, I'm trying to be a better software developer.</p>
+  
+  <p>Non-professionals don't have to take responsibility for the job they do, sometimes they leave that to their employers or customers.
+  If a nonprofessional makes an error, they will fix in a beautiful day or simpler they ignore it and they hope QA or customer won't find it.
+  But when a professional makes a mistake, he cleans up the mess and tries to prevent it happen again in the future.</p>
+  
+  <p>So, <strong>professionalism is all taking responsibility.</strong></p>
+  
+  <h2 id="how-do-we-take-responsibility">How do we take responsibility?</h2>
+  
+  <p>The book show some principles:</p>
+  
+  <ul>
+    <li>Do No Harm to Function</li>
+    <li>Do No Harm to Structure</li>
+    <li>Work Ethic</li>
+    <li>Know Your Field</li>
+    <li>Continuous Learning</li>
+    <li>Practice</li>
+    <li>Collaboration</li>
+    <li>Mentoring</li>
+    <li>Know Your Domain</li>
+  </ul>
+  
+  <h3 id="do-no-harm-to-function">Do No Harm to Function</h3>
+  
+  <p>Software is too complex to create without bugs. We have to take responsibility for their implementation to get as close as possible to it.</p>
+  
+  <p>The book teaches me when I release any feature, I should expect QA to find nothing. Yes, nothing. QA is not a bug catcher. This means I have to know my code works.
+  So, how do I know my code works? That's easy. Test it, test it again, test it up, test it down, test it seven ways to Sunday - Uncle Bob says</p>
+  
+  <p>Haha, When I read this paragraph, I suddenly remember I told the same thing with my team and they said they don't have to time to test, many features and bugs are waiting for us.
+  It can be true, right? lol.</p>
+  
+  <p>What Uncle Bob said?</p>
+  
+  <ul>
+    <li>
+      <p><strong>Automate your tests</strong> Write unit tests that you can execute on a moment's notice and run those tests as often as you can.</p>
+    </li>
+    <li>
+      <p><strong>Every single line of your code should be tested - 100% test coverage.</strong></p>
+    </li>
+  </ul>
+  
+  <p>But isn't some code hard to test? Yes, in a lot of cases I didn't know how to test.</p>
+  
+  <ul>
+    <li>The solution is to design your code to be easy to test. <strong>And the best way to do that is to write your tests first, before you write the code to pass them.
+  Let's Test driven your design, your development.</strong> This is a discipline known as <strong>Test Driven Development (TDD)</strong></li>
+  </ul>
+  
+  <h3 id="do-no-harm-to-structure">Do No Harm to Structure</h3>
+  
+  <p>In a few projects I got a lot of troubles, you will ask me what kind of trouble? Huh, look the picture below:</p>
+  
+  <p><img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1czRkbzZVbUR0VDA" alt="bug-everywhere" /></p>
+  
+  <p>Based on my experience, I know bugs come from the code, the application's structure. If your application structure and your code are messy, trust me, you will join the Bug Party 24/7.
+  In these cases, I want to refactor the code, apply the principles and patterns of software design that support structures are flexible and maintainable.</p>
+  
+  <p>Uncle Bob showed me a trick that I should follow: <strong>If you want your software to be flexible, you have to flex it</strong></p>
+  
+  <ul>
+    <li>
+      <p>The only way to prove that your software is easy to change is to make easy changes to it. And when you find that the changes aren't as easy as you thought, you refine the design so that the next design change is easier.</p>
+    </li>
+    <li>
+      <p>He introduced me a rule: <strong>Always check in a module cleaner than when you checked it out. Always make some random act of kindness to the code whenever you see it.</strong></p>
+    </li>
+  </ul>
+  
+  <p>This action is dangerous. No! Uncle Bob said. <strong>What is dangerous is allowing the software to remain static.</strong>
+  If you aren't flexing it then when you do need a change it, you will find it rigid. And if you scare continuous changes then this mean you don't have tests. It's so TRUE.</p>
+  
+  <p>100% test coverage will help you confident with any changes.</p>
+  
+  <h3 id="work-ethic">Work Ethic</h3>
+  
+  <p>One thing that Uncle Bob said in this part that the thing I didn't know in my first three years experience. <strong>Your career is your responsibility.</strong>
+  Don't wait your company gives to you a favor, you should find a way to do them by yourself. If you wanna join a conference, you should buy a ticket, wanna read a book, go ahead.</p>
+  
+  <p>Bob also let me know about professional developers always spend time caring for their profession.</p>
+  
+  <ul>
+    <li>Plan on working 60 hours per week. 30 to 40 hours for your employer. The remaining 20/30 hours are for you. During this remaining 20/30 hours, you should be reading, practicing, learning, writing to enhance your career.
+  <strong>20/30 hours is your and you should be doing those things that reinforce programming passion.</strong></li>
+  </ul>
+  
+  <h3 id="know-your-field">Know Your Field</h3>
+  
+  <p>Uncle Bob haves a minimal list of the things that every software professional should be conversant with:</p>
+  
+  <ul>
+    <li>Design Patterns - You should able to describe, understand all 24 patterns in the GOF book and usually using favorite few patterns.</li>
+    <li>Design Principles - You should know SOLID principles and have a good understanding of the component principles.</li>
+    <li>Methods - You should understand XP, Scrum, Lean, Kanban, Agile …</li>
+    <li>Disciplines - You should practice TDD, Object Oriented Design, Structured Programming, Continous Integration and Pair Programming.</li>
+    <li>Artifacts - You should know how to use: UML, DFDs, Structure Charts …</li>
+  </ul>
+  
+  <h3 id="continuous-learning">Continuous Learning</h3>
+  
+  <p>This part really pushes me up.</p>
+  
+  <ul>
+    <li>Read books, articles, blogs, tweets. Go to conferences, meetups.</li>
+    <li><strong>Learn things that are outside your comfort zone</strong>. If you are Ruby developer, then learn Java/Elixir/Rust/C. Learn to train your brain.</li>
+  </ul>
+  
+  <h3 id="practice">Practice</h3>
+  
+  <p>Profession practice. True professional work hard to keep their skills sharp and get ready.</p>
+  
+  <p>To do that, you have to do daily practice. Solve Katas the good ways to train your fingers and your brain. Solve by multiple languages to maintain your ski Solve Katas the good ways to train your fingers and your brain. Solve by multiple languages to maintain your skill.</p>
+  
+  <p>At least two katas in every day. From morning to warm up to evening before you sleep.</p>
+  
+  <h3 id="collaboration---mentoring">Collaboration - Mentoring</h3>
+  
+  <p>Share your knowledge and problems with people - A lot of superman around you, you can learn a lot of from them.</p>
+  
+  <p>Write blogs to teach people and get their feedback to improve your skill.</p>
+  
+  <h3 id="know-your-domain">Know Your Domain</h3>
+  
+  <p>Before start any project, let's take the time to research. Interview your customer and users about the foundation and basic of the domain. Spend time with the experts and try to understand
+  their principles and values.</p>
+  
+  <h2 id="conclusion">Conclusion</h2>
+  
+  <p>This chapter really opened my eyes - helps me know what should I do to become a professional software developer.</p>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (6)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

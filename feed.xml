@@ -5,10 +5,278 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-06T22:52:00+08:00</updated>
+  <updated>2017-03-11T11:40:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>Cleancoder chapter 1</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/11/clean-coder-chapter-1/"/>
+    <id>http://vincent.com/2017/03/11/clean-coder-chapter-1/</id>
+    <published>2017-03-11T11:40:00+08:00</published>
+    <updated>2017-03-11T14:30:07+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;&lt;strong&gt;Personal note after reading The Cleancoder chapter 1. Thanks &lt;a href="https://sites.google.com/site/unclebobconsultingllc/"&gt;Uncle Bob&lt;/a&gt; for this awesome book.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are a developer, you have to read it. The perfect time to read is when you have two or three years experience in software/web/backend development...&lt;/p&gt;</summary>
+    <content type="html">&lt;p&gt;&lt;strong&gt;Personal note after reading The Cleancoder chapter 1. Thanks &lt;a href="https://sites.google.com/site/unclebobconsultingllc/"&gt;Uncle Bob&lt;/a&gt; for this awesome book.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are a developer, you have to read it. The perfect time to read is when you have two or three years experience in software/web/backend development.&lt;/p&gt;
+
+&lt;h2 id="professionalism"&gt;Professionalism&lt;/h2&gt;
+
+&lt;p&gt;All of us want to be a professional software developer. What's professionalism?&lt;/p&gt;
+
+&lt;p&gt;You know, it's a lot easier to be a nonprofessional, and me I used to be a nonprofessional software developer. I don't tell now I'm a professional software developer, I'm trying to be a better software developer.&lt;/p&gt;
+
+&lt;p&gt;Non-professionals don't have to take responsibility for the job they do, sometimes they leave that to their employers or customers.
+If a nonprofessional makes an error, they will fix in a beautiful day or simpler they ignore it and they hope QA or customer won't find it.
+But when a professional makes a mistake, he cleans up the mess and tries to prevent it happen again in the future.&lt;/p&gt;
+
+&lt;p&gt;So, &lt;strong&gt;professionalism is all taking responsibility.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id="how-do-we-take-responsibility"&gt;How do we take responsibility?&lt;/h2&gt;
+
+&lt;p&gt;The book show some principles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Do No Harm to Function&lt;/li&gt;
+  &lt;li&gt;Do No Harm to Structure&lt;/li&gt;
+  &lt;li&gt;Work Ethic&lt;/li&gt;
+  &lt;li&gt;Know Your Field&lt;/li&gt;
+  &lt;li&gt;Continuous Learning&lt;/li&gt;
+  &lt;li&gt;Practice&lt;/li&gt;
+  &lt;li&gt;Collaboration&lt;/li&gt;
+  &lt;li&gt;Mentoring&lt;/li&gt;
+  &lt;li&gt;Know Your Domain&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="do-no-harm-to-function"&gt;Do No Harm to Function&lt;/h3&gt;
+
+&lt;p&gt;Software is too complex to create without bugs. We have to take responsibility for their implementation to get as close as possible to it.&lt;/p&gt;
+
+&lt;p&gt;The book teaches me when I release any feature, I should expect QA to find nothing. Yes, nothing. QA is not a bug catcher. This means I have to know my code works.
+So, how do I know my code works? That's easy. Test it, test it again, test it up, test it down, test it seven ways to Sunday - Uncle Bob says&lt;/p&gt;
+
+&lt;p&gt;Haha, When I read this paragraph, I suddenly remember I told the same thing with my team and they said they don't have to time to test, many features and bugs are waiting for us.
+It can be true, right? lol.&lt;/p&gt;
+
+&lt;p&gt;What Uncle Bob said?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Automate your tests&lt;/strong&gt; Write unit tests that you can execute on a moment's notice and run those tests as often as you can.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Every single line of your code should be tested - 100% test coverage.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But isn't some code hard to test? Yes, in a lot of cases I didn't know how to test.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The solution is to design your code to be easy to test. &lt;strong&gt;And the best way to do that is to write your tests first, before you write the code to pass them.
+Let's Test driven your design, your development.&lt;/strong&gt; This is a discipline known as &lt;strong&gt;Test Driven Development (TDD)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="do-no-harm-to-structure"&gt;Do No Harm to Structure&lt;/h3&gt;
+
+&lt;p&gt;In a few projects I got a lot of troubles, you will ask me what kind of trouble? Huh, look the picture below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1czRkbzZVbUR0VDA" alt="bug-everywhere" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Based on my experience, I know bugs come from the code, the application's structure. If your application structure and your code are messy, trust me, you will join the Bug Party 24/7.
+In these cases, I want to refactor the code, apply the principles and patterns of software design that support structures are flexible and maintainable.&lt;/p&gt;
+
+&lt;p&gt;Uncle Bob showed me a trick that I should follow: &lt;strong&gt;If you want your software to be flexible, you have to flex it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The only way to prove that your software is easy to change is to make easy changes to it. And when you find that the changes aren't as easy as you thought, you refine the design so that the next design change is easier.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;He introduced me a rule: &lt;strong&gt;Always check in a module cleaner than when you checked it out. Always make some random act of kindness to the code whenever you see it.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This action is dangerous. No! Uncle Bob said. &lt;strong&gt;What is dangerous is allowing the software to remain static.&lt;/strong&gt;
+If you aren't flexing it then when you do need a change it, you will find it rigid. And if you scare continuous changes then this mean you don't have tests. It's so TRUE.&lt;/p&gt;
+
+&lt;p&gt;100% test coverage will help you confident with any changes.&lt;/p&gt;
+
+&lt;h3 id="work-ethic"&gt;Work Ethic&lt;/h3&gt;
+
+&lt;p&gt;One thing that Uncle Bob said in this part that the thing I didn't know in my first three years experience. &lt;strong&gt;Your career is your responsibility.&lt;/strong&gt;
+Don't wait your company gives to you a favor, you should find a way to do them by yourself. If you wanna join a conference, you should buy a ticket, wanna read a book, go ahead.&lt;/p&gt;
+
+&lt;p&gt;Bob also let me know about professional developers always spend time caring for their profession.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Plan on working 60 hours per week. 30 to 40 hours for your employer. The remaining 20/30 hours are for you. During this remaining 20/30 hours, you should be reading, practicing, learning, writing to enhance your career.
+&lt;strong&gt;20/30 hours is your and you should be doing those things that reinforce programming passion.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="know-your-field"&gt;Know Your Field&lt;/h3&gt;
+
+&lt;p&gt;Uncle Bob haves a minimal list of the things that every software professional should be conversant with:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Design Patterns - You should able to describe, understand all 24 patterns in the GOF book and usually using favorite few patterns.&lt;/li&gt;
+  &lt;li&gt;Design Principles - You should know SOLID principles and have a good understanding of the component principles.&lt;/li&gt;
+  &lt;li&gt;Methods - You should understand XP, Scrum, Lean, Kanban, Agile …&lt;/li&gt;
+  &lt;li&gt;Disciplines - You should practice TDD, Object Oriented Design, Structured Programming, Continous Integration and Pair Programming.&lt;/li&gt;
+  &lt;li&gt;Artifacts - You should know how to use: UML, DFDs, Structure Charts …&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="continuous-learning"&gt;Continuous Learning&lt;/h3&gt;
+
+&lt;p&gt;This part really pushes me up.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Read books, articles, blogs, tweets. Go to conferences, meetups.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Learn things that are outside your comfort zone&lt;/strong&gt;. If you are Ruby developer, then learn Java/Elixir/Rust/C. Learn to train your brain.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="practice"&gt;Practice&lt;/h3&gt;
+
+&lt;p&gt;Profession practice. True professional work hard to keep their skills sharp and get ready.&lt;/p&gt;
+
+&lt;p&gt;To do that, you have to do daily practice. Solve Katas the good ways to train your fingers and your brain. Solve by multiple languages to maintain your ski Solve Katas the good ways to train your fingers and your brain. Solve by multiple languages to maintain your skill.&lt;/p&gt;
+
+&lt;p&gt;At least two katas in every day. From morning to warm up to evening before you sleep.&lt;/p&gt;
+
+&lt;h3 id="collaboration---mentoring"&gt;Collaboration - Mentoring&lt;/h3&gt;
+
+&lt;p&gt;Share your knowledge and problems with people - A lot of superman around you, you can learn a lot of from them.&lt;/p&gt;
+
+&lt;p&gt;Write blogs to teach people and get their feedback to improve your skill.&lt;/p&gt;
+
+&lt;h3 id="know-your-domain"&gt;Know Your Domain&lt;/h3&gt;
+
+&lt;p&gt;Before start any project, let's take the time to research. Interview your customer and users about the foundation and basic of the domain. Spend time with the experts and try to understand
+their principles and values.&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This chapter really opened my eyes - helps me know what should I do to become a professional software developer.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Few notes about service oriented design</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/09/service-oriented-design-part-1/"/>
+    <id>http://vincent.com/2017/03/09/service-oriented-design-part-1/</id>
+    <published>2017-03-09T19:49:00+08:00</published>
+    <updated>2017-03-11T11:39:00+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;This is my note about Service Oriented Design after reading the book. Although the book is quite old,
+but it helps me understand basic concepts about service oriented design and how to transform your web application to multiple services...&lt;/p&gt;</summary>
+    <content type="html">&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;This is my note about Service Oriented Design after reading the book. Although the book is quite old,
+but it helps me understand basic concepts about service oriented design and how to transform your web application to multiple services.&lt;/p&gt;
+
+&lt;p&gt;Before going to the detail, let's read what's service oriented design?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Service oriented design is about creating systems that group functionality around logical function and business practices.
+  Services should be designed to be interoperable and reusable.
+  The goal of service oriented design is to split up the parts of an application or system into components that can be iterated on,
+  improved, and fixed without having to test and verify all the other components when an individual is updated.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;One more thing, this is my personal opinion after I read few chapters in the book:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I knew Ruby on Rails when I was an intern at a outsource company. After 3 years, based on
+my experience and from some friends, I realized almost applications that built from Ruby on Rails framework had a big problem about performance.
+More specifically, when the application got a lot of business logic with a complex view, many if-else conditions in controllers/views, that was the time
+I feed very bad about performance of application. That was also the time I felt scared and didn't know how to solve that problem.&lt;/p&gt;
+
+&lt;p&gt;My friends advise against using Rails because they say it's not scalable. Basically, I don't think Rails framework is the main problem,
+even when Rails core code looks quite terrible, for example:
+&lt;a href="https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/form_helper.rb"&gt;form_helper.rb&lt;/a&gt; or Rails architecture is monolithic architecture.&lt;/p&gt;
+
+&lt;p&gt;The main problem comes from us, from the way we design application, the way we design database schema.&lt;/p&gt;
+
+&lt;p&gt;A services approach provides more tools and ability to deal with scaling. Data can be split across services and the performance
+under load can be optimized for each service.&lt;/p&gt;
+
+&lt;h2 id="case-study-classruum"&gt;Case study: Classruum&lt;/h2&gt;
+
+&lt;p&gt;This case study will have a little different with case study inside the book. I tried to apply concepts to one of projects that I worked.
+The case study named Classruum - This is an education learning platform with a lot of main features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Student subscribes different packages with many topics inside.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Student opens topic and start to learn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Student does the exam after finish a topic.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tutor creates topic and kind of exams.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tutor publishes information relates courses and student can comments.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Users can chat together.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Notification system to send the message to students when tutor creates new topic or assignment.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;And so on …&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Classruum is a Rails web application, I and my team, we built it from scratch. Below is a diagram the way application works.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1MzE5OXNDUEpXbU0" alt="simple-diagram" /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a database server and a few web application servers and some background processing that is integrated with the application.&lt;/p&gt;
+
+&lt;p&gt;This diagram is quite powerful, and simple right? But it will be a trouble when the database server is unable to keep up with the number of requests or the application gains more models, controllers, views and tests.&lt;/p&gt;
+
+&lt;p&gt;Service oriented design can help address these problems.&lt;/p&gt;
+
+&lt;h2 id="converting-to-services"&gt;Converting to Services&lt;/h2&gt;
+
+&lt;p&gt;The book shown a few questions helps determine how to redesign for services:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Which data has high read and low write frequency?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Which data has high write and update frequency?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Which joins occur most frequently?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Which parts of the application have clearly defined requirements and design?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These questions will be analyse in the part 2.&lt;/p&gt;
+
+&lt;p&gt;Now, I will show few general diagrams when breaking up the Classruum into Services.&lt;/p&gt;
+
+&lt;p&gt;Everything of Classruum is contained in a single application.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/" alt="first" /&gt;&lt;/p&gt;
+
+</content>
+  </entry>
   <entry>
     <title>How to test monkey-patch methods?</title>
     <link rel="alternate" href="http://vincent.com/2017/03/06/how-to-test-monkey-patch-methods/"/>
