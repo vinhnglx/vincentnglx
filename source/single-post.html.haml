@@ -17,6 +17,14 @@
             %span.floated.right
                 %i.calendar.icon.small>
                 = Date.parse(current_page.data.date).strftime('%e %B %Y')
+    .content
+        - if current_page.tags
+            %span.right.floated
+                - current_page.tags.each do |tag|
+                    - if tag != current_page.tags.last
+                        #{link_to tag, tag_path(tag)}&#44;
+                    - else
+                        = link_to tag, tag_path(tag)
 
     - if current_page.data.image
         %img{:src => current_page.data.image, :class => "ui fluid image rounded"}
