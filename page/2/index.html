@@ -10,7 +10,7 @@
     <meta content='website' property='og:type'>
     <meta content='https://vinhnglx.github.io/' property='og:url'>
     <title>
-      Vincent Nguyen- How to test monkey-patch methods?
+      Vincent Nguyen
     </title>
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
     <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
@@ -31,60 +31,54 @@
     </div>
   </body>
 </html>
-<div class='ui main text container' role='main'>
-  <h2 class='ui header'>
-    How to test monkey-patch methods?
-  </h2>
-  <div class='content'>
-    <div class='meta'>
-      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
-      </span>
-      <span class='floated right'><i class='calendar icon small'></i> 6 March 2017
-      </span>
+<div class='ui main container' role='main'>
+  <div class='ui three column doubling stackable masonry grid'>
+    <div class='column'>
+      <div class='ui fluid card'>
+        <a class='image' href='/2017/03/03/scrape-web-page-to-find-duplicate-contents/'>
+        </a>
+        <div class='content'>
+          <div class='header'>
+            <a href="/2017/03/03/scrape-web-page-to-find-duplicate-contents/">How to scrape a web page to find duplicate contents</a>
+          </div>
+          <div class='meta'>
+            <span class='left floated'>
+              <i class='user icon small'></i>
+              Vincent Nguyen
+            </span>
+            <span class='right floated'>
+               3 March 2017
+              <i class='calendar outline icon small'></i>
+            </span>
+          </div>
+          <div class='ui hidden divider'></div>
+          <div class='description'>
+            <p>I recently tried to submit my job application to a few companies, unfortunately, I still can't get hired but I passed some rounds
+            for technical test. This post is a technical test from a company in Singapore, they want to me write a tool to
+            find duplicated...</p>
+          </div>
+        </div>
+        <div class='content extra'>
+          <span class='right floated'>
+            <a href="/tags/ruby/">Ruby</a>&#44;
+            <a href="/tags/scrape/">Scrape</a>
+            <i class='tag icon small'></i>
+          </span>
+          <span class='left floated'>
+            <!-- %i.comment.outline.icon> -->
+            <!-- = link_to "4", article.url+"#comments" -->
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class='content'>
-    <span class='right floated'>
-      <a href="/tags/ruby/">Ruby</a>
-    </span>
-  </div>
   <div class='ui hidden divider'></div>
-  <p>I won't explain what's Monkey-patch, many developers knew about it.</p>
-  
-  <p>In Ruby, we can create and test monkey-patch methods like the code below:</p>
-  
-  <pre><code>    module StringExtensions
-      # Number of words in a string
-      def word_count
-        self.split.size
-      end
-    end
-  
-    describe String do
-      before do
-        String.include StringExtensions
-      end
-  
-      describe "#word_count" do
-        it "returns number of words in a string" do
-          expect("Hell yeah".word_count).to eq 2
-          expect("Hello world! I'm Vincent".word_count).to eq 4
-        end
-  
-        it "returns zero if a string is empty" do
-          expect("".word_count).to eq 4
-        end
-      end
-    end
-  </code></pre>
-  
-  <p>Personally, I don't like monkey-patch, we can create a Word class for methods relate to words in a string.
-  But you know, sometimes we have to monkey-path so this is one way we can apply.</p>
-  
-  <p>Thanks for reading!</p>
-  <!-- %a{:name => "comments"} -->
-  <!-- %h3.ui.dividing.header Comments -->
-  <!-- = partial 'partials/comments' -->
+  <div class='ui labels'>
+    <div class='ui label'>
+      page 2 of 2
+    </div>
+    <a href="/" class="ui label blue">previous page</a>
+  </div>
 </div>
 <div class='ui vertical footer segment'>
   <div class='ui container'>

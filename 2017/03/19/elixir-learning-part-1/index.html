@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Elixir Learning Part 1
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+          <a class='item' href='https://www.goodreads.com/vinhnglx' target='_blank'>
+            Reading List
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Elixir Learning Part 1
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i>19 March 2017
+      </span>
+    </div>
+  </div>
+  <div class='content'>
+    <span class='right floated'>
+      <a href="/tags/elixir/">elixir</a>
+    </span>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>Yo! It's time to start learning new languages. Elixir is a language that I started to learn. Below are few notes:</p>
+  
+  <ul>
+    <li>
+      <p>Everything in Elixir is an expression that has a return value.</p>
+    </li>
+    <li>
+      <p>Module is a collection of functions, something like a namespace. Every Elixir function must be defined inside a module.</p>
+  
+      <ul>
+        <li>To call a fucntion of a module, use the syntax : <code>ModuleName.function_name(args)</code></li>
+        <li>To define your own module, use the <code>defmodule</code> contruct.</li>
+        <li>Inside the module, using <code>def</code> contruct to define function.</li>
+        <li>
+          <p><code>defmodule</code> and <code>def</code> are compilation constructs called <strong>macros</strong></p>
+  
+          <pre><code>  defmodule Geometry do
+    def rectangle_area(a, b) do
+      a * b
+    end
+  end
+  </code></pre>
+        </li>
+        <li>A module name must follow certain rules: start with an uppercase letter and is usually written in <em>CamelCase</em> style.</li>
+      </ul>
+    </li>
+    <li>
+      <p>Function must always be a part of a module. Function name start with lowercase letter and underscore character.</p>
+  
+      <ul>
+        <li>Function names can end with <code>?</code> or <code>!</code>
+          <ul>
+            <li><code>?</code> means a function returns true of false</li>
+            <li><code>!</code> means a function may raise a runtime error</li>
+          </ul>
+        </li>
+        <li>If a function has no arguments then we can omit parentheses.</li>
+      </ul>
+    </li>
+    <li>
+      <p>To combine functions, passing the result of one function as the argument to the next one. Elixir comes with a built-in operator: <code>|&gt;</code> - pipeline operator</p>
+  
+      <pre><code>      iex(2)&gt; -5 |&gt; abs |&gt; Kernel.+(6)
+      11
+  </code></pre>
+    </li>
+    <li>
+      <p>Arity is a fancy name for the number of arguments a funciton receives.</p>
+  
+      <pre><code>        defmodule Greeting do
+          def say_hi(name) do
+            # ...
+          end
+        end
+  </code></pre>
+  
+      <ul>
+        <li>The function Greeting.say_hi receives one argument so function arity is 1.</li>
+        <li>This function is often called <code>Greeting.say_hi/1</code></li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Two functions with the same name but different arities are two different functions.</strong></p>
+  
+      <pre><code>        defmodule Geometry do
+          def area(a, b) do # Arity: Geometry.area/2
+            a * b
+          end
+  
+          def area(a) do # Arity: Geometry.area/1
+            area(a, a)
+          end
+        end
+  
+        # Geometry.area(5) # =&gt; 25
+        # Geometry.area(3,4) # =&gt; 12
+  </code></pre>
+  
+      <ul>
+        <li>It usually make no sense for different functions with a same name to have completely different implementations.</li>
+        <li>In general, a lower-arity function delegates to a higher-arity function.</li>
+        <li>
+          <p>Elixir allows you to specify defaults for argument by using the <code>\\</code> operator.</p>
+  
+          <pre><code>   defmodule Geometry do
+     def sum(a, b \\ 0)
+       a + b
+     end
+   end
+   # Geometry.sum(5) # =&gt; 5
+   # Geometry.sum(4,6) # =&gt; 10
+  </code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>Using <code>def</code> macro when define a function, the function is made public. Using <code>defp</code> macro to make the function private.</p>
+    </li>
+  </ul>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (7)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
