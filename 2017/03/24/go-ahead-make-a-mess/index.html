@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Go ahead - Make a mess
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+          <a class='item' href='https://www.goodreads.com/vinhnglx' target='_blank'>
+            Reading List
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Go ahead - Make a mess
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i>24 March 2017
+      </span>
+    </div>
+  </div>
+  <div class='content'>
+    <span class='right floated'>
+      <a href="/tags/object-oriented-design/">Object-oriented design</a>&#44;
+      <a href="/tags/architecture/">architecture</a>
+    </span>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>This title belongs Sandi Metz. She spoke at a Ruby Conference 5 years ago - Source: <a href="https://www.youtube.com/watch?v=f5I1iyso29U">https://www.youtube.com/watch?v=f5I1iyso29U</a></p>
+  
+  <p>I am learning object oriented design - I watched this video two days ago and I have few notes about what I learned:</p>
+  
+  <h3 id="mess">Mess</h3>
+  
+  <p>The coupling and the mess are because of <strong>Knowledge</strong>. In general, knowledge means objects and dependencies around.
+  And an object always knows thing about them self and they also know thing about the others. There are many ways to solve problems by arranging dependencies.
+  You have to understand Stability to control dependencies in the right way.</p>
+  
+  <h3 id="stability">Stability</h3>
+  
+  <p>Stability is relative and things that we unstable in some circumstances, but from some point of view might be stable from the others.
+  In programming, stability is when you apply Object Oriented Design to solve confusing about objects.</p>
+  
+  <h3 id="object-oriented-design">Object Oriented Design</h3>
+  
+  <p>OOD knows how to separate stable and unstable; choose how to depend on the first and hide the second. It gives you a way to manage the mess,
+  so you can write app satisfaction fun and forever. It changes everything. OOD lets you stop worrying and learn to love the mess.</p>
+  
+  <blockquote>
+    <p><em>The concrete code is easy to understand, costly to change; The abstract code is hard to change when first time looks at it, but it must cheaper to change;
+  the principle of OOD move your code to more abstraction, it benefits outweigh the cost.</em>
+  – <strong>Sandi Metz</strong></p>
+  </blockquote>
+  
+  <h3 id="omega-mess">Omega-Mess</h3>
+  
+  <p>For example: we have a method with many lines inside - it's a big ugly complicated code.</p>
+  
+  <p>If nothing inside this method can change or force on change out in the app or nothing out in the app can change or force to change inside this method then this method
+  is special kind of mess - Sandi Metz gave it a name: Omega Mess</p>
+  
+  <p>To recap, Omega-Mess have no dependencies and no dependent. And Omega-Mess are hidden behind the message.</p>
+  
+  <h3 id="knowledge-plot">Knowledge Plot</h3>
+  
+  <p>This is a plot that your code need to change.</p>
+  
+  <p><img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1V3I5SXVhbHRjNzQ" alt="Knowledge plot" /></p>
+  
+  <ul>
+    <li>On the horizontal access, we have Stability. The Stable thing on the left, Unstable thing on the right.</li>
+    <li>On the vertical axis is about what the object know. Whether the information that object have within purpose or outside of purpose.</li>
+  </ul>
+  
+  <p>Knowing which quadrant a bit of knowledge falls into telling you how to behave.</p>
+  
+  <ul>
+    <li>The top-left quadrant: <strong>Stable</strong> thing within your permit are part of <strong>Public API</strong>.</li>
+    <li>The <strong>Unstable</strong> thing within your purpose are <strong>Private Behavior</strong> and they should be hidden behind a <strong>Public API</strong>.</li>
+    <li>Anything below the line is <strong>Dependencies</strong>.</li>
+    <li>You should <strong>EXPOSE</strong> the <strong>Public API</strong>.</li>
+    <li>You should <strong>HIDE</strong> the <strong>Private Behavior</strong> behind that.</li>
+    <li><strong>Stable Dependencies</strong> that are outside of your purpose, you have to have in order to collaborate with other objects but you should <strong>MINIMIZE</strong> them.</li>
+    <li><strong>Unstable Dependencies</strong> that don't belong to then you should be <strong>MOVE</strong>.</li>
+  </ul>
+  
+  <h3 id="conclusion">Conclusion</h3>
+  
+  <p>From the video, I understood the basic concepts about OOD and the plot help me know what should I do with the messy code.</p>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (8)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

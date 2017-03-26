@@ -5,10 +5,87 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-19T11:27:00+08:00</updated>
+  <updated>2017-03-24T19:39:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>Go ahead - Make a mess</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/24/go-ahead-make-a-mess/"/>
+    <id>http://vincent.com/2017/03/24/go-ahead-make-a-mess/</id>
+    <published>2017-03-24T19:39:00+08:00</published>
+    <updated>2017-03-26T13:42:21+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;This title belongs Sandi Metz. She spoke at a Ruby Conference 5 years ago - Source: &lt;a href="https://www.youtube.com/watch?v=f5I1iyso29U"&gt;https://www.youtube.com/watch?v=f5I1iyso29U&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am learning object oriented design - I watched this video two days ago and I have few notes about what I learned:&lt;/p&gt;
+
+&lt;h3 id="mess"&gt;Mess&lt;/h3&gt;</summary>
+    <content type="html">&lt;p&gt;This title belongs Sandi Metz. She spoke at a Ruby Conference 5 years ago - Source: &lt;a href="https://www.youtube.com/watch?v=f5I1iyso29U"&gt;https://www.youtube.com/watch?v=f5I1iyso29U&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am learning object oriented design - I watched this video two days ago and I have few notes about what I learned:&lt;/p&gt;
+
+&lt;h3 id="mess"&gt;Mess&lt;/h3&gt;
+
+&lt;p&gt;The coupling and the mess are because of &lt;strong&gt;Knowledge&lt;/strong&gt;. In general, knowledge means objects and dependencies around.
+And an object always knows thing about them self and they also know thing about the others. There are many ways to solve problems by arranging dependencies.
+You have to understand Stability to control dependencies in the right way.&lt;/p&gt;
+
+&lt;h3 id="stability"&gt;Stability&lt;/h3&gt;
+
+&lt;p&gt;Stability is relative and things that we unstable in some circumstances, but from some point of view might be stable from the others.
+In programming, stability is when you apply Object Oriented Design to solve confusing about objects.&lt;/p&gt;
+
+&lt;h3 id="object-oriented-design"&gt;Object Oriented Design&lt;/h3&gt;
+
+&lt;p&gt;OOD knows how to separate stable and unstable; choose how to depend on the first and hide the second. It gives you a way to manage the mess,
+so you can write app satisfaction fun and forever. It changes everything. OOD lets you stop worrying and learn to love the mess.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;The concrete code is easy to understand, costly to change; The abstract code is hard to change when first time looks at it, but it must cheaper to change;
+the principle of OOD move your code to more abstraction, it benefits outweigh the cost.&lt;/em&gt;
+– &lt;strong&gt;Sandi Metz&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="omega-mess"&gt;Omega-Mess&lt;/h3&gt;
+
+&lt;p&gt;For example: we have a method with many lines inside - it's a big ugly complicated code.&lt;/p&gt;
+
+&lt;p&gt;If nothing inside this method can change or force on change out in the app or nothing out in the app can change or force to change inside this method then this method
+is special kind of mess - Sandi Metz gave it a name: Omega Mess&lt;/p&gt;
+
+&lt;p&gt;To recap, Omega-Mess have no dependencies and no dependent. And Omega-Mess are hidden behind the message.&lt;/p&gt;
+
+&lt;h3 id="knowledge-plot"&gt;Knowledge Plot&lt;/h3&gt;
+
+&lt;p&gt;This is a plot that your code need to change.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1V3I5SXVhbHRjNzQ" alt="Knowledge plot" /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;On the horizontal access, we have Stability. The Stable thing on the left, Unstable thing on the right.&lt;/li&gt;
+  &lt;li&gt;On the vertical axis is about what the object know. Whether the information that object have within purpose or outside of purpose.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Knowing which quadrant a bit of knowledge falls into telling you how to behave.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The top-left quadrant: &lt;strong&gt;Stable&lt;/strong&gt; thing within your permit are part of &lt;strong&gt;Public API&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;Unstable&lt;/strong&gt; thing within your purpose are &lt;strong&gt;Private Behavior&lt;/strong&gt; and they should be hidden behind a &lt;strong&gt;Public API&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Anything below the line is &lt;strong&gt;Dependencies&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;You should &lt;strong&gt;EXPOSE&lt;/strong&gt; the &lt;strong&gt;Public API&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;You should &lt;strong&gt;HIDE&lt;/strong&gt; the &lt;strong&gt;Private Behavior&lt;/strong&gt; behind that.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Stable Dependencies&lt;/strong&gt; that are outside of your purpose, you have to have in order to collaborate with other objects but you should &lt;strong&gt;MINIMIZE&lt;/strong&gt; them.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Unstable Dependencies&lt;/strong&gt; that don't belong to then you should be &lt;strong&gt;MOVE&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;From the video, I understood the basic concepts about OOD and the plot help me know what should I do with the messy code.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Elixir Learning Part 1</title>
     <link rel="alternate" href="http://vincent.com/2017/03/19/elixir-learning-part-1/"/>
@@ -288,7 +365,7 @@ their principles and values.&lt;/p&gt;
     <link rel="alternate" href="http://vincent.com/2017/03/09/service-oriented-design-part-1/"/>
     <id>http://vincent.com/2017/03/09/service-oriented-design-part-1/</id>
     <published>2017-03-09T19:49:00+08:00</published>
-    <updated>2017-03-11T11:39:00+08:00</updated>
+    <updated>2017-03-20T10:10:44+08:00</updated>
     <author>
       <name>Vincent</name>
     </author>
@@ -477,111 +554,6 @@ In my opinion, Agile are:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;That's all. I only need to keep remember 4 manifesto.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Few Ruby Katas in a rainy day</title>
-    <link rel="alternate" href="http://vincent.com/2017/03/05/few-ruby-kata-in-sunday/"/>
-    <id>http://vincent.com/2017/03/05/few-ruby-kata-in-sunday/</id>
-    <published>2017-03-05T18:00:00+08:00</published>
-    <updated>2017-03-05T18:50:23+08:00</updated>
-    <author>
-      <name>Vincent</name>
-    </author>
-    <summary type="html">&lt;p&gt;In a rainy Sunday, I have solved three katas.&lt;/p&gt;
-
-&lt;h3 id="kata-1"&gt;Kata #1&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Return the first longest string consisting of k consecutive strings taken in the array&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  longest_consec(["zone", "abigail", "theta", "form", "libe",
-"zas", "theta", "abigail"], 2) ...&lt;/code&gt;&lt;/pre&gt;</summary>
-    <content type="html">&lt;p&gt;In a rainy Sunday, I have solved three katas.&lt;/p&gt;
-
-&lt;h3 id="kata-1"&gt;Kata #1&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Return the first longest string consisting of k consecutive strings taken in the array&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  longest_consec(["zone", "abigail", "theta", "form", "libe",
-"zas", "theta", "abigail"], 2) # "abigailtheta"
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I solved this kata with a helping from &lt;a href="https://ruby-doc.org/core-2.1.0/Enumerable.html#method-i-each_cons"&gt;each_cons&lt;/a&gt; method.
-A method belongs to Enumerable in Ruby.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  def longest_consec(strarr, k)
-  strarr_length = strarr.length
-  return "" if strarr_length == 0 || k &amp;gt; strarr_length || k &amp;lt;= 0
-  return strarr.each_cons(k).map {|el| el.join("") }.max_by(&amp;amp;:length)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="kata-2"&gt;Kata #2&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed
-Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  spin_words("Hey fellow warriors") # "Hey wollef sroirraw"
-spin_words("Hello world. My name is Vincent") # olleH .dlrow My name is tnecniV
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This kata is quite easy to solve. Basically, I just split the string into an array of words and reverse words that have more than 5 letters.
-Then I will convert that array of words to string.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  def spin_words(string)
-  string.split(" ").map {|el|
-    if el.length &amp;gt;= 5 then el.reverse else el end}.join(" ")
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="kata-3"&gt;Kata #3&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;A string is considered to be in title case if each word in the string is
-either (a) capitalised (that is, only the first letter of the word is in
-upper case) or (b) considered to be an exception and put entirely into
-lower case unless it is the first word, which is always capitalised.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Write a function that will convert a string into title case, given an
-optional list of exceptions (minor words). The list of minor words will
-be given as a string with each word separated by a space. Your function
-should ignore the case of the minor words string – it should behave in
-the same way even if the case of the minor word string is changed.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  title_case('a clash of KINGS', 'a an the of') # A Class of Kings
-title_case('THE WIND IN THE WILLOWS', 'The In') # The Wind in the Willows
-title_case('the quick brown fox') # The Quick Brown Fox
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If the minor_words option is null then we will capitalize each word in this input string.
-If there is minor_word option then we only capitalize words that don't inside the minor_word list.
-In addition, we always capitalize the first word of string.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The code will be:&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  def title_case(title, minor_words = '')
-  if minor_words.empty?
-    title.split(" ").map(&amp;amp;:capitalize).join(" ")
-  else
-    minor_arr = minor_words.split(" ").map(&amp;amp;:downcase)
-    first_el, *rest_el = title.split(" ").map(&amp;amp;:downcase)
-    rest_el.map {|el| unless minor_arr.include?(el) then el.capitalize else el end}.unshift(first_el.capitalize).join(" ")
-  end
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
 </content>
   </entry>
 </feed>
