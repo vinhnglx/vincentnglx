@@ -5,10 +5,170 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-24T19:39:00+08:00</updated>
+  <updated>2017-03-28T22:18:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>Elixir Learning Part 2</title>
+    <link rel="alternate" href="http://vincent.com/2017/03/28/elixir-learning-part-2/"/>
+    <id>http://vincent.com/2017/03/28/elixir-learning-part-2/</id>
+    <published>2017-03-28T22:18:00+08:00</published>
+    <updated>2017-03-28T23:28:46+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;h3 id="import-and-alias"&gt;Import and Alias&lt;/h3&gt;
+
+&lt;p&gt;To call a function from another module, you have to reference the module name, sometime this can be cumbersome. If your module often calls functions
+from another module, let's use &lt;code&gt;import&lt;/code&gt; other module into your own.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    defmodule...&lt;/code&gt;&lt;/pre&gt;</summary>
+    <content type="html">&lt;h3 id="import-and-alias"&gt;Import and Alias&lt;/h3&gt;
+
+&lt;p&gt;To call a function from another module, you have to reference the module name, sometime this can be cumbersome. If your module often calls functions
+from another module, let's use &lt;code&gt;import&lt;/code&gt; other module into your own.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    defmodule User do
+    import IO
+
+    def name do
+      puts "Vincent"
+    end
+  end
+
+  User.name # Hello Vincent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can import multiple modules.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;An alternative to import is &lt;code&gt;alias&lt;/code&gt; to reference a module under a different name&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;    defmodule User do
+    alias IO, as: Alien
+
+    def name do
+      Alien.put "Vincent"
+    end
+  end
+
+  User.name # "Vincent"
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Alias will useful if a module has a long name.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="module-attributes"&gt;Module attributes&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Module attributes can be used as compile-time &lt;code&gt;constants&lt;/code&gt;. The constant exists only during the compilation of the module.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;    # circle.ex
+    defmodule Circle do
+    @pi 3.14159
+
+    def area(r) do
+      r*r*@pi
+    end
+  end
+
+  Circle.area(4) # 4 * 4 * 3.14159 = 50.26544
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate a compiled file by command: &lt;code&gt;elixirc circle.ex&lt;/code&gt;, then start &lt;code&gt;iex&lt;/code&gt; shell from the same folder. From &lt;code&gt;iex&lt;/code&gt; shell, call &lt;code&gt;Circle.area(4)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="atom"&gt;Atom&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Atoms are literal named constants. Similar to symbols in Ruby, for example: &lt;code&gt;:an_atom&lt;/code&gt;, &lt;code&gt;:user_name&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another syntax for Atom constants start with uppercase: &lt;code&gt;Abcd&lt;/code&gt;. This is called an &lt;code&gt;alias&lt;/code&gt;. When you use an alias, the complier implicitly addes the &lt;code&gt;Elixir&lt;/code&gt; as a prefix. &lt;code&gt;Abcd == Elixir.Abcd&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;One important thing, Elixir doesn't have a dedicated boolean type - &lt;code&gt;:true == true&lt;/code&gt;. This mean a boolean is just an atom that has value of true or false.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another special thing is &lt;code&gt;nil&lt;/code&gt;. Nil is also an atom - &lt;code&gt;nil == :nil&lt;/code&gt;&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;    nil || false || 3 # 3
+    nil || true # true
+    3 || nil # 3
+
+    3 &amp;amp;&amp;amp; nil # nil
+    nil &amp;amp;&amp;amp; 3 # nil
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="tuples"&gt;Tuples&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tuples are used to group a small, fixed number of elements together.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;    user = { "Vincent", 27, "Software Developer" }
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="list"&gt;List&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;List are used to manage dynamic, variable-sized collections of data.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;    user = [1,2,3,4,5, "Vincent"]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The complexity of operations on list have an O(n).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; You should avoid adding elements to the end of a list. The reason in below section&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="recursive-list-definition"&gt;Recursive list definition&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;An alternative way of looking at lists is to think of them as recursive structures. A list can be represented by a pair (&lt;code&gt;head&lt;/code&gt;, &lt;code&gt;tail&lt;/code&gt;), where &lt;code&gt;head&lt;/code&gt;
+is the first element of the list and &lt;code&gt;tail&lt;/code&gt; points to the pair of remaining elements&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;There is special syntax to support recursive list definition.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;  a_list = [head | tail]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;So for example we have a list &lt;code&gt;[1,2,3,4,5]&lt;/code&gt; then the construct can be write:&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;  a_list = [1 | [2 | [3 | [4 | [5 | []]]]]]
+  # [1,2,3,4,5]
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That's why we SHOULD NOT add elements to the end of a list.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;
+- Data in Elixir is immutable and you can't do an in-memory modification of a value.
+- You need to store its result to another variable or rebound.&lt;/p&gt;
+
+</content>
+  </entry>
   <entry>
     <title>Go ahead - Make a mess</title>
     <link rel="alternate" href="http://vincent.com/2017/03/24/go-ahead-make-a-mess/"/>
@@ -525,35 +685,6 @@ The case study named Classruum - This is an education learning platform with a l
 But you know, sometimes we have to monkey-path so this is one way we can apply.&lt;/p&gt;
 
 &lt;p&gt;Thanks for reading!&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>What's Agile?</title>
-    <link rel="alternate" href="http://vincent.com/2017/03/06/whats-agile/"/>
-    <id>http://vincent.com/2017/03/06/whats-agile/</id>
-    <published>2017-03-06T22:24:00+08:00</published>
-    <updated>2017-03-06T23:15:10+08:00</updated>
-    <author>
-      <name>Vincent</name>
-    </author>
-    <summary type="html">&lt;p&gt;What's Agile? Recent years, many people say about Agile, Agile certificates, SCRUM master, Kanban. And almost people
-thinks Agile is something big - they open Agile days/conference and they say we will use Agile to manage software projects.&lt;/p&gt;
-
-&lt;p&gt;Huh, honestly...&lt;/p&gt;</summary>
-    <content type="html">&lt;p&gt;What's Agile? Recent years, many people say about Agile, Agile certificates, SCRUM master, Kanban. And almost people
-thinks Agile is something big - they open Agile days/conference and they say we will use Agile to manage software projects.&lt;/p&gt;
-
-&lt;p&gt;Huh, honestly, I really hate those who say about that - Scrum, Kanban or certificates are ways to develop software better.
-In my opinion, Agile are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Individuals and interactions overs processes and tools.&lt;/li&gt;
-  &lt;li&gt;Working software over comprehensive documentation.&lt;/li&gt;
-  &lt;li&gt;Customer collaboration over contract negotiation.&lt;/li&gt;
-  &lt;li&gt;Responding to change over following a plan.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;That's all. I only need to keep remember 4 manifesto.&lt;/p&gt;
 </content>
   </entry>
 </feed>
