@@ -103,9 +103,28 @@ is the first element of the list and `tail` points to the pair of remaining elem
         a_list = [1 | [2 | [3 | [4 | [5 | []]]]]]
         # [1,2,3,4,5]
 
-That's why we SHOULD NOT add elements to the end of a list.
+**That's why we SHOULD NOT add elements to the end of a list.**
+
+- Use `hd` to get the head of a list and `tl` to get the tail of a list.
+
+          list = [1,2,3,4]
+        hd(list) # 1
+        tl(list) # [2,3,4]
+
+Or
+
+            [a | b] = list
+          a # 1
+          b # [2,3,4]
+
+- How we push new element to the top of the list
+
+          list = [1,2,3,4]
+        new_list = [0 | list]
+        # [0,1,2,3,4]
 
 **NOTE:**
+
 - Data in Elixir is immutable and you can't do an in-memory modification of a value.
 - You need to store its result to another variable or rebound.
 
