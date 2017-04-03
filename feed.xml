@@ -5,10 +5,71 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-03-28T22:18:00+08:00</updated>
+  <updated>2017-04-03T09:38:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>How to read an understand the books or papers</title>
+    <link rel="alternate" href="http://vincent.com/2017/04/03/how-to-read-and-understand-books-paper/"/>
+    <id>http://vincent.com/2017/04/03/how-to-read-and-understand-books-paper/</id>
+    <published>2017-04-03T09:38:00+08:00</published>
+    <updated>2017-04-03T10:35:23+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;Reading books is my hobby. Normally I have few problems when reading science or programming's books. Some books are quite hard to read and understand.
+The big reason is I don't know the right way to read. Luckily I found an article &lt;a href="https://violentmetaphors.com/2013/08/25/how-to-read-and-understand-a-scientific-paper-2/"&gt;sharing tips&lt;/a&gt;
+to...&lt;/p&gt;</summary>
+    <content type="html">&lt;p&gt;Reading books is my hobby. Normally I have few problems when reading science or programming's books. Some books are quite hard to read and understand.
+The big reason is I don't know the right way to read. Luckily I found an article &lt;a href="https://violentmetaphors.com/2013/08/25/how-to-read-and-understand-a-scientific-paper-2/"&gt;sharing tips&lt;/a&gt;
+to reading a books. So, I wrote this post to remind me: should follow twelve tips in the article to read books efficiently.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Write down EVERY single word that you don't understand. Have to look them all up.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reading the introduction and abstract (if have). The article's author say don't read the abstract, but in my opinion, we should read.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Identify the BIG QUESTION, this helps you focus why this research is being done.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SUMMARIZE the background in five sentences or less.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Identify the SPECIFIC QUESTIONS. What exactly are the authors trying to answer with their research? There maybe multiple questions or just one. Write them down.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Identify the approach. What are the authors going to do the answer the SPECIFIC QUESTIONS?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now read the methods section. Draw a diagram for each experiment, showing exactly what the authors did.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Read the results section. Write one or more paragraphs to summarize for each experiment, each figure, each table. Don't yet try to decide what
+the results mean, just write down what they are.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do the results answer the SPECIFIC QUESTIONS? What do you think they mean?&lt;/p&gt;
+
+    &lt;p&gt;Don't move on until you have thought about this. In my opinion, I think we have to understand (full or a bit) before go to next section.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Read the conclusion/discusstion section.&lt;/p&gt;
+
+    &lt;p&gt;What do the authors think the results mean? Do you agree with them? Can you come up with any alternative way?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now, go back to the beginning and read the abstract again.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Final step: What do others researchers say about this book?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Elixir Learning Part 2</title>
     <link rel="alternate" href="http://vincent.com/2017/03/28/elixir-learning-part-2/"/>
@@ -664,59 +725,6 @@ The case study named Classruum - This is an education learning platform with a l
 
 &lt;p&gt;&lt;img src="/images/" alt="first" /&gt;&lt;/p&gt;
 
-</content>
-  </entry>
-  <entry>
-    <title>How to test monkey-patch methods?</title>
-    <link rel="alternate" href="http://vincent.com/2017/03/06/how-to-test-monkey-patch-methods/"/>
-    <id>http://vincent.com/2017/03/06/how-to-test-monkey-patch-methods/</id>
-    <published>2017-03-06T22:52:00+08:00</published>
-    <updated>2017-03-06T23:12:54+08:00</updated>
-    <author>
-      <name>Vincent</name>
-    </author>
-    <summary type="html">&lt;p&gt;I won't explain what's Monkey-patch, many developers knew about it.&lt;/p&gt;
-
-&lt;p&gt;In Ruby, we can create and test monkey-patch methods like the code below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    module StringExtensions
-    # Number of words in a string
-    def word_count
-      self.split.size
-...&lt;/code&gt;&lt;/pre&gt;</summary>
-    <content type="html">&lt;p&gt;I won't explain what's Monkey-patch, many developers knew about it.&lt;/p&gt;
-
-&lt;p&gt;In Ruby, we can create and test monkey-patch methods like the code below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    module StringExtensions
-    # Number of words in a string
-    def word_count
-      self.split.size
-    end
-  end
-
-  describe String do
-    before do
-      String.include StringExtensions
-    end
-
-    describe "#word_count" do
-      it "returns number of words in a string" do
-        expect("Hell yeah".word_count).to eq 2
-        expect("Hello world! I'm Vincent".word_count).to eq 4
-      end
-
-      it "returns zero if a string is empty" do
-        expect("".word_count).to eq 4
-      end
-    end
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Personally, I don't like monkey-patch, we can create a Word class for methods relate to words in a string.
-But you know, sometimes we have to monkey-path so this is one way we can apply.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading!&lt;/p&gt;
 </content>
   </entry>
 </feed>
