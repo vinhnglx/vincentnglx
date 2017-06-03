@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Few things quite simple but need to keep remember
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+          <a class='item' href='https://www.goodreads.com/vinhnglx' target='_blank'>
+            Reading List
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Few things quite simple but need to keep remember
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i> 3 June 2017
+      </span>
+    </div>
+  </div>
+  <div class='content'>
+    <span class='right floated'>
+      <a href="/tags/programming/">programming</a>
+    </span>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>Yo! I came back after 2 months. This post is my note after read a <a href="https://blog.codeship.com/refactoring-and-design-patterns/">news</a> from CodeShip.</p>
+  
+  <p>From wiki:</p>
+  
+  <blockquote>
+    <p>Code refactoring is the process of restructuring existing computer code without changing its external behavior.</p>
+  </blockquote>
+  
+  <h3 id="why-refactor-your-code">Why Refactor Your Code</h3>
+  
+  <p>I still think, in the first 2 working years, refactoring is something that I will start to refactor after finish a project.
+  And of course, after finished the project, I forgot my promise - always.</p>
+  
+  <p>Until a day, when I faced to senior developers from a different country, they came to Vietnam to work with my team.
+  I felt very bad, I can't work with them. I saw a big wall, I need to get out of comfortable zone to survive.</p>
+  
+  <p>I started to re-learn everything about programming, up to now, I still learning .. haha … Learning is never stop.</p>
+  
+  <p>Alright! Back to the topic.</p>
+  
+  <blockquote>
+    <p>Anyone can write code that computer can understand. And <strong>only good programmer can write code that human can understand</strong></p>
+  </blockquote>
+  
+  <p>Refactoring will help the code more readable, performance improvements. Refactoring code doesn't change behavior or output.</p>
+  
+  <p>In programming, there is a software development process called TDD: requirements are turned into very specific test cases, then
+  the software is improved to pass new tests, only. There are three phases in TDD:</p>
+  
+  <ul>
+    <li>
+      <p>Add a test. Each new feature begins with writing a test. To write a test, the developer must clearly understand the feature's specfication and requirements.
+  After that, run the test to see the test fails. If you skip this step, you may end up with a dead code - missing requirement. This phase is <strong>RED</strong> phase.</p>
+    </li>
+    <li>
+      <p>Write the code. Only write some code that causes the test to pass. This phase is <strong>GREEN</strong> phase.</p>
+    </li>
+    <li>
+      <p>Tests are passed, the developer can be confident that the new code meets the test requirements and doesn't break or degrade any existing features.
+  Next, this is the step that you will apply learned knowledge of good code practices and make small adjustment without changing the codes behavior.
+  New code can be moved from where is was convenient for passing a test to where it more logically belongs. Duplication code must be removed.
+  This phase is <strong>REFACTOR</strong> phase.</p>
+    </li>
+    <li>
+      <p>And the wheel continues to roll. Starting to another new test.</p>
+    </li>
+  </ul>
+  
+  <p>In general, code that doesn't get refactored as a system works by hopes. Pray to system work.</p>
+  
+  <p>There are specific and general guidelines for refactoring and for creating clean code that all developers must to know.</p>
+  
+  <p>So where that guidelines? How can I improve my code?</p>
+  
+  <h3 id="where">Where?</h3>
+  
+  <p>Before start to learning anything either new language or new framework, let's start to learn a process of how to think through problems.
+  Don't only good for learning but none of the good coding practices.</p>
+  
+  <p>There are design patterns that help decouple and remove most of the heavy query method usage, such as
+  Tell Don’t Ask, Eastward Oriented Code, and Monads.</p>
+  
+  <p><em>NOTE: I will write blog posts about three this concepts soon!</em></p>
+  
+  <p>Learning to apply patterns such as these will help relieve you of many of the headaches you experienced as a new programmer.</p>
+  
+  <h3 id="rails">Rails</h3>
+  
+  <p>By design, Rails has a way to organize data and behavior into specific areas to help maintanability and functionality.</p>
+  
+  <p>The Rails's code may be implemented something like:</p>
+  
+  <ul>
+    <li>Model: data store, organize data for presentation</li>
+    <li>Controller: selecting data for presentation and rendering the view</li>
+    <li>View: the layout with lots of conditional logic based on the user data</li>
+  </ul>
+  
+  <p>Here, Model and View are both doing more than they should - They are not following the SRP (Single Responsibility Principle).
+  The model should not be reponsible data for presentation and the view should not contain conditional logic for how it's rendered.</p>
+  
+  <p>So, the new way should like:</p>
+  
+  <ul>
+    <li>Model: data store</li>
+    <li>Controller: selecting data and wrap in presenter and render view</li>
+    <li>Presenter: organize model data for presentation (no HTML)</li>
+    <li>Helper: Conditional view logic will be re-used.</li>
+    <li>View: the layout with simple method calls directly on presenter objects and any helpers.</li>
+  </ul>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (11)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

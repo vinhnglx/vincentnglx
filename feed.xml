@@ -5,10 +5,123 @@
   <id>http://vincent.com</id>
   <link href="http://vincent.com"/>
   <link href="http://vincent.com/feed.xml" rel="self"/>
-  <updated>2017-04-03T09:38:00+08:00</updated>
+  <updated>2017-06-03T19:47:00+08:00</updated>
   <author>
     <name>Vincent</name>
   </author>
+  <entry>
+    <title>Few things quite simple but need to keep remember</title>
+    <link rel="alternate" href="http://vincent.com/2017/06/03/basic-but-need-to-keep-remember/"/>
+    <id>http://vincent.com/2017/06/03/basic-but-need-to-keep-remember/</id>
+    <published>2017-06-03T19:47:00+08:00</published>
+    <updated>2017-06-03T22:17:36+08:00</updated>
+    <author>
+      <name>Vincent</name>
+    </author>
+    <summary type="html">&lt;p&gt;Yo! I came back after 2 months. This post is my note after read a &lt;a href="https://blog.codeship.com/refactoring-and-design-patterns/"&gt;news&lt;/a&gt; from CodeShip.&lt;/p&gt;
+
+&lt;p&gt;From wiki:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code refactoring is the process of restructuring existing computer code without changing its external behavior.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="why-refactor-your-code"&gt;Why Refactor Your Code&lt;/h3&gt;
+
+&lt;p&gt;I still...&lt;/p&gt;</summary>
+    <content type="html">&lt;p&gt;Yo! I came back after 2 months. This post is my note after read a &lt;a href="https://blog.codeship.com/refactoring-and-design-patterns/"&gt;news&lt;/a&gt; from CodeShip.&lt;/p&gt;
+
+&lt;p&gt;From wiki:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Code refactoring is the process of restructuring existing computer code without changing its external behavior.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="why-refactor-your-code"&gt;Why Refactor Your Code&lt;/h3&gt;
+
+&lt;p&gt;I still think, in the first 2 working years, refactoring is something that I will start to refactor after finish a project.
+And of course, after finished the project, I forgot my promise - always.&lt;/p&gt;
+
+&lt;p&gt;Until a day, when I faced to senior developers from a different country, they came to Vietnam to work with my team.
+I felt very bad, I can't work with them. I saw a big wall, I need to get out of comfortable zone to survive.&lt;/p&gt;
+
+&lt;p&gt;I started to re-learn everything about programming, up to now, I still learning .. haha … Learning is never stop.&lt;/p&gt;
+
+&lt;p&gt;Alright! Back to the topic.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Anyone can write code that computer can understand. And &lt;strong&gt;only good programmer can write code that human can understand&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Refactoring will help the code more readable, performance improvements. Refactoring code doesn't change behavior or output.&lt;/p&gt;
+
+&lt;p&gt;In programming, there is a software development process called TDD: requirements are turned into very specific test cases, then
+the software is improved to pass new tests, only. There are three phases in TDD:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Add a test. Each new feature begins with writing a test. To write a test, the developer must clearly understand the feature's specfication and requirements.
+After that, run the test to see the test fails. If you skip this step, you may end up with a dead code - missing requirement. This phase is &lt;strong&gt;RED&lt;/strong&gt; phase.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Write the code. Only write some code that causes the test to pass. This phase is &lt;strong&gt;GREEN&lt;/strong&gt; phase.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tests are passed, the developer can be confident that the new code meets the test requirements and doesn't break or degrade any existing features.
+Next, this is the step that you will apply learned knowledge of good code practices and make small adjustment without changing the codes behavior.
+New code can be moved from where is was convenient for passing a test to where it more logically belongs. Duplication code must be removed.
+This phase is &lt;strong&gt;REFACTOR&lt;/strong&gt; phase.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;And the wheel continues to roll. Starting to another new test.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In general, code that doesn't get refactored as a system works by hopes. Pray to system work.&lt;/p&gt;
+
+&lt;p&gt;There are specific and general guidelines for refactoring and for creating clean code that all developers must to know.&lt;/p&gt;
+
+&lt;p&gt;So where that guidelines? How can I improve my code?&lt;/p&gt;
+
+&lt;h3 id="where"&gt;Where?&lt;/h3&gt;
+
+&lt;p&gt;Before start to learning anything either new language or new framework, let's start to learn a process of how to think through problems.
+Don't only good for learning but none of the good coding practices.&lt;/p&gt;
+
+&lt;p&gt;There are design patterns that help decouple and remove most of the heavy query method usage, such as
+Tell Don’t Ask, Eastward Oriented Code, and Monads.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTE: I will write blog posts about three this concepts soon!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Learning to apply patterns such as these will help relieve you of many of the headaches you experienced as a new programmer.&lt;/p&gt;
+
+&lt;h3 id="rails"&gt;Rails&lt;/h3&gt;
+
+&lt;p&gt;By design, Rails has a way to organize data and behavior into specific areas to help maintanability and functionality.&lt;/p&gt;
+
+&lt;p&gt;The Rails's code may be implemented something like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model: data store, organize data for presentation&lt;/li&gt;
+  &lt;li&gt;Controller: selecting data for presentation and rendering the view&lt;/li&gt;
+  &lt;li&gt;View: the layout with lots of conditional logic based on the user data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here, Model and View are both doing more than they should - They are not following the SRP (Single Responsibility Principle).
+The model should not be reponsible data for presentation and the view should not contain conditional logic for how it's rendered.&lt;/p&gt;
+
+&lt;p&gt;So, the new way should like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model: data store&lt;/li&gt;
+  &lt;li&gt;Controller: selecting data and wrap in presenter and render view&lt;/li&gt;
+  &lt;li&gt;Presenter: organize model data for presentation (no HTML)&lt;/li&gt;
+  &lt;li&gt;Helper: Conditional view logic will be re-used.&lt;/li&gt;
+  &lt;li&gt;View: the layout with simple method calls directly on presenter objects and any helpers.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
   <entry>
     <title>How to read an understand the books or papers</title>
     <link rel="alternate" href="http://vincent.com/2017/04/03/how-to-read-and-understand-books-paper/"/>
@@ -611,120 +724,6 @@ their principles and values.&lt;/p&gt;
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;This chapter really opened my eyes - helps me know what should I do to become a professional software developer.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Few notes about service oriented design</title>
-    <link rel="alternate" href="http://vincent.com/2017/03/09/service-oriented-design-part-1/"/>
-    <id>http://vincent.com/2017/03/09/service-oriented-design-part-1/</id>
-    <published>2017-03-09T19:49:00+08:00</published>
-    <updated>2017-03-20T10:10:44+08:00</updated>
-    <author>
-      <name>Vincent</name>
-    </author>
-    <summary type="html">&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;This is my note about Service Oriented Design after reading the book. Although the book is quite old,
-but it helps me understand basic concepts about service oriented design and how to transform your web application to multiple services...&lt;/p&gt;</summary>
-    <content type="html">&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;This is my note about Service Oriented Design after reading the book. Although the book is quite old,
-but it helps me understand basic concepts about service oriented design and how to transform your web application to multiple services.&lt;/p&gt;
-
-&lt;p&gt;Before going to the detail, let's read what's service oriented design?&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Service oriented design is about creating systems that group functionality around logical function and business practices.
-  Services should be designed to be interoperable and reusable.
-  The goal of service oriented design is to split up the parts of an application or system into components that can be iterated on,
-  improved, and fixed without having to test and verify all the other components when an individual is updated.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;One more thing, this is my personal opinion after I read few chapters in the book:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I knew Ruby on Rails when I was an intern at a outsource company. After 3 years, based on
-my experience and from some friends, I realized almost applications that built from Ruby on Rails framework had a big problem about performance.
-More specifically, when the application got a lot of business logic with a complex view, many if-else conditions in controllers/views, that was the time
-I feed very bad about performance of application. That was also the time I felt scared and didn't know how to solve that problem.&lt;/p&gt;
-
-&lt;p&gt;My friends advise against using Rails because they say it's not scalable. Basically, I don't think Rails framework is the main problem,
-even when Rails core code looks quite terrible, for example:
-&lt;a href="https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers/form_helper.rb"&gt;form_helper.rb&lt;/a&gt; or Rails architecture is monolithic architecture.&lt;/p&gt;
-
-&lt;p&gt;The main problem comes from us, from the way we design application, the way we design database schema.&lt;/p&gt;
-
-&lt;p&gt;A services approach provides more tools and ability to deal with scaling. Data can be split across services and the performance
-under load can be optimized for each service.&lt;/p&gt;
-
-&lt;h2 id="case-study-classruum"&gt;Case study: Classruum&lt;/h2&gt;
-
-&lt;p&gt;This case study will have a little different with case study inside the book. I tried to apply concepts to one of projects that I worked.
-The case study named Classruum - This is an education learning platform with a lot of main features:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Student subscribes different packages with many topics inside.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Student opens topic and start to learn.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Student does the exam after finish a topic.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Tutor creates topic and kind of exams.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Tutor publishes information relates courses and student can comments.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Users can chat together.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Notification system to send the message to students when tutor creates new topic or assignment.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;And so on …&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Classruum is a Rails web application, I and my team, we built it from scratch. Below is a diagram the way application works.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="https://docs.google.com/uc?id=0B-S3PHiYZOY1MzE5OXNDUEpXbU0" alt="simple-diagram" /&gt;&lt;/p&gt;
-
-&lt;p&gt;There is a database server and a few web application servers and some background processing that is integrated with the application.&lt;/p&gt;
-
-&lt;p&gt;This diagram is quite powerful, and simple right? But it will be a trouble when the database server is unable to keep up with the number of requests or the application gains more models, controllers, views and tests.&lt;/p&gt;
-
-&lt;p&gt;Service oriented design can help address these problems.&lt;/p&gt;
-
-&lt;h2 id="converting-to-services"&gt;Converting to Services&lt;/h2&gt;
-
-&lt;p&gt;The book shown a few questions helps determine how to redesign for services:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Which data has high read and low write frequency?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Which data has high write and update frequency?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Which joins occur most frequently?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Which parts of the application have clearly defined requirements and design?&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These questions will be analyse in the part 2.&lt;/p&gt;
-
-&lt;p&gt;Now, I will show few general diagrams when breaking up the Classruum into Services.&lt;/p&gt;
-
-&lt;p&gt;Everything of Classruum is contained in a single application.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="/images/" alt="first" /&gt;&lt;/p&gt;
-
 </content>
   </entry>
 </feed>
