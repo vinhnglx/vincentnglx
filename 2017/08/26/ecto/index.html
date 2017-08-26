@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content="Personal blog of a simple developer with life's energy is coffee" name='description'>
+    <meta content='vincent nguyen, vinnglx' name='keywords'>
+    <meta content='Vincent Nguyen' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='https://vinhnglx.github.io/' property='og:url'>
+    <title>
+      Vincent Nguyen- Ecto
+    </title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <script src="/javascripts/vendor/jquery.min.js"></script><script src="/javascripts/vendor/semantic-ui.js"></script><script src="/javascripts/app.js"></script>
+    <link href="/stylesheets/all.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class='ui secondary pointing menu large'>
+      <div class='ui container'>
+        <div class='header item'>
+          <a class='item' href='/'>
+            Vincent Nguyen
+          </a>
+          <a class='item' href='https://www.goodreads.com/vinhnglx' target='_blank'>
+            Reading List
+          </a>
+          <a class='item' href='https://til-vinhnglx.herokuapp.com/' target='_blank'>
+            Today I Learned
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<div class='ui main text container' role='main'>
+  <h2 class='ui header'>
+    Ecto
+  </h2>
+  <div class='content'>
+    <div class='meta'>
+      <span class='right floated'><i class='user icon small'></i>Vincent Nguyen
+      </span>
+      <span class='floated right'><i class='calendar icon small'></i>26 August 2017
+      </span>
+    </div>
+  </div>
+  <div class='content'>
+    <span class='right floated'>
+      <a href="/tags/elixir/">elixir</a>&#44;
+      <a href="/tags/ecto/">ecto</a>
+    </span>
+  </div>
+  <div class='ui hidden divider'></div>
+  <p>When I start to learn and work on Elixir, I really impressive about Ecto.</p>
+  
+  <blockquote>
+    <p>Ecto is a database wrapper and language integrated query for Elixir.</p>
+  </blockquote>
+  
+  <p>My personal feeling is Ecto is not magically like ActiveRecord. For example, Ecto doesn't support Lazy-Load, you need to allow data
+  to be preloaded into structs. Lazy loading is often a source of confusion and performance issues and Ecto pushes developers to do the proper thing. Sound good, huh?</p>
+  
+  <p>Ecto also supports a mechanism to help you organize the schema across multiple contexts - break a large schema into smaller ones. Maybe one for reading data,
+  another for writing. Or one for your database, another for your forms.</p>
+  
+  <p>And did you know the Plataformatec? They wrote a cool <a href="http://pages.plataformatec.com.br/ebook-whats-new-in-ecto-2-0">free Ecto ebook</a> and the book will be updated frequently when Ecto release new version.</p>
+  
+  <p>After few days reading the book below is my summary and of course, from the book, I also had few things don't completely understand. I will deep dive it again in this September.</p>
+  
+  <hr />
+  
+  <ul>
+    <li>ORM - O is for Objects. Objects couple state and behavior together. For example, in the <code>product</code> object, we have state named <code>price</code> and behavior named <code>purchased?</code>.
+  And with Ruby programming language, the code will be: <code>product.price</code> and <code>product.purchased?</code></li>
+  </ul>
+  
+  <p>But Elixir fails the "coupling of state and behavior". Behavior in Elixir is always added to modules via functions. Elixir provides structs to help us work with
+  structured data.</p>
+  
+  <pre><code>    defmodule Product do
+      defstruct [:price, :title]
+  
+      def purchased?(product) do
+        # Do Sth
+      end
+    end
+  </code></pre>
+  
+  <p>The call will be</p>
+  
+  <pre><code>    product = Product.new(title: "iPhone 8", price: 1000)
+    product.price
+  
+    Product.purchased?(product)
+  </code></pre>
+  
+  <ul>
+    <li>
+      <p>ORM - RM is Relational Mapper. Ecto provides schemas that map any data source into an Elixir struct. <em>When applied to your database, Ecto schemas are relational mapper</em></p>
+  
+      <pre><code>  defmodule Sample.Type do
+    use Sample.Web, :model
+  
+    schema "types" do
+      field :name, :string
+      field :desc, :string
+      field :slug, :string
+      has_many :quotes, Sample.Quote
+  
+      timestamps()
+    end
+  end
+  </code></pre>
+    </li>
+  </ul>
+  
+  <p>As you see, the schema <code>types</code> is the place you provide information for fields and set relationship to another model.</p>
+  
+  <p>And a schema may be end-up with hundreds of fields, relationships - this is a very bad schema. Therefore, it's better to break schema across multiple contexts, this would lead to simpler and clearer solutions.</p>
+  
+  <ul>
+    <li>
+      <p>Most queries in Ecto are written using schemas. And Ecto 2.0 adds many improvements to schemaless queries - allowing all database operations to be expressed without a schema. They tend to simple queries.</p>
+    </li>
+    <li>
+      <p>Ecto supports test factories and we don't need to use a 3-party library for creating factories.</p>
+    </li>
+    <li>
+      <p><strong>Ecto has dynamic queries, allow us to build dynamic expressions that are later interpolated into the query. This feature is quite cool, and I noted here. Will come back to deep dive.</strong></p>
+    </li>
+    <li>
+      <p>Ecto introduces the ability to run queries in different prefixes. Data in different prefixes are isolated. This is really fit when you build multi-tenant application. <strong>One more note to deep dive.</strong></p>
+    </li>
+    <li>
+      <p>Ecto also includes <code>many_to_many</code> relationships - <strong>I'm sure will take a look about this in my current side project.</strong></p>
+    </li>
+    <li>
+      <p>The last two things about transaction with Ecto.Multi and Concurrent test with SQL Sandbox - <strong>I will deep dive when I face these problems</strong></p>
+    </li>
+  </ul>
+  <!-- %a{:name => "comments"} -->
+  <!-- %h3.ui.dividing.header Comments -->
+  <!-- = partial 'partials/comments' -->
+</div>
+<div class='ui vertical footer segment'>
+  <div class='ui container'>
+    <div class='ui stackable two column grid internally celled'>
+      <div class='column'>
+        <p>Vincent Nguyen</p>
+        <a href="https://twitter.com/vinhnglx">Twitter</a>
+        |
+        <a href="https://github.com/vinhnglx/">GitHub</a>
+      </div>
+      <div class='column'>
+        <p>By Year</p>
+        <div class='ui list'>
+          <a href="/archive/2017/" class="item">2017 (14)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
